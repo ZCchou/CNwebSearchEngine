@@ -30,6 +30,7 @@ void MyTask::process()
 switch(protol){
     //协议1是关键字推荐
     //协议2是网页搜索
+//协议3是网页json
 case 1:{
  outcome =_wordrecommender.recommend(rwtd);
  break;    
@@ -38,13 +39,18 @@ case 2:{
  outcome= _websearcher.doQuery(wtd);
 break;
        }
+case 3:{
+ outcome= _websearcher.doQueryjson(wtd);
+break;
+       }
+
 default:
        {
  outcome= "无效输入\n";
        break;
        }
             }
-    _con->sendInLoop(outcome+"\n已响应,输入1+单字/词获得推荐词，输入2+空格分开的词获得文章\n");
+    _con->sendInLoop(outcome+"\n已响应\n输入1+单字/词获得推荐词\n输入2+空格分开的词获得文章\n输入3+空格分开的词获得文章json格式\n");
 }
 
 EchoServer::EchoServer(size_t threadNum, size_t queSize
@@ -85,7 +91,7 @@ void EchoServer::stop()
 void EchoServer::onConnection(const TcpConnectionPtr &con)
 {
     cout << con->toString() << " has connected!!" << endl; 
-    con->sendInLoop("连接到服务器，输入1+单字/词获得推荐词，输入2+空格分开的词获得文章\n");
+    con->sendInLoop("连接到服务器\n\n输入1+单字/词获得推荐词\n输入2+空格分开的词获得文章\n输入3+空格分开的词获得文章json格式\n");
 }
 
 void EchoServer::onMessage(const TcpConnectionPtr &con)

@@ -1,0 +1,6 @@
+{
+	"InvertIndexDataplace": "../data/Invertindex.dat",
+	"offsetplace": "../data/offset.dat",
+	"rippageplace": "../data/rippage.dat",
+	"websplace": "../data/web"
+}

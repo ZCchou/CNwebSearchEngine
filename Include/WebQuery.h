@@ -3,6 +3,7 @@
 #include <sstream>
 #include<fstream>
 #include "RssWebpage.h"
+#include "../Include/JsonReader.h"
 #include<set>
 #include<map>
 #include<cmath>
@@ -45,6 +46,13 @@ class WebQuery{
     string _offsetplace="../data/offset.dat";
     string _rippageplace="../data/rippage.dat";
 public:
+WebQuery(){
+JsonReader jsonr("../conf/Webqueryconf.json");
+_InvertIndexDataplace=jsonr.findlocal("InvertIndexDataplace");
+_offsetplace=jsonr.findlocal("offsetplace");
+_rippageplace=jsonr.findlocal("rippageplace");
+
+}
     //获得所有查询的文章,对外暴露
     vector<WebPage> getquery(string);
     //根据id获得文章
