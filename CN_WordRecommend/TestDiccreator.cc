@@ -1,4 +1,5 @@
 #include "Diccreater.cc"
+#include "JsonReader.cc"
 #include<iostream>
 int main(){
 Diccreater datc;

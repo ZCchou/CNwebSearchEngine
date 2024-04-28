@@ -1,5 +1,5 @@
 #include "Diccreater.h"
-
+#include "JsonReader.h"
 //处理所有文件
 void Diccreater::HandleAllFile()
 {
